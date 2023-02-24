@@ -12,7 +12,12 @@ namespace CapturePress
 
         private static String DocFile;
         private string FilePath = @"C:\Capture_Folder\temp\";
-
+        
+        
+      
+        /// <summary>
+        /// Create default save folder for saving
+        /// </summary>
         public void SaveFolder()
         {
             if (!Directory.Exists(FilePath))
@@ -21,19 +26,18 @@ namespace CapturePress
             }
         }
 
+        /// <summary>
+        /// Caputure the screenshot and save it as jpg 
+        /// </summary>
         public void CaptureScreenshot()
         {
             try
             {
-                //Creating a new Bitmap object
+              
                 Bitmap captureBitmap = new Bitmap(1920, 1080, PixelFormat.Format32bppArgb);
-                //capture our Current Screen
                 Rectangle captureRectangle = Screen.AllScreens[0].Bounds;
-                //Creating a New Graphics Object
                 Graphics captureGraphics = Graphics.FromImage(captureBitmap);
-                //Copying Image from The Screen
                 captureGraphics.CopyFromScreen(captureRectangle.Left, captureRectangle.Top, 0, 0, captureRectangle.Size);
-                //Saving the Image File (I am here Saving it in My E drive).
                 string filenName = "Capture_" + DateTime.Now.ToString("yyyyMMddTHHmmss") + ".jpg";
                 string FinalPathString = FilePath + filenName;
                 captureBitmap.Save(FinalPathString, ImageFormat.Jpeg);
@@ -45,6 +49,9 @@ namespace CapturePress
             }
         }
 
+        /// <summary>
+        /// Create new word document
+        /// </summary>
         public void CreateDoc()
         {
             document = new Spire.Doc.Document();
@@ -54,9 +61,13 @@ namespace CapturePress
             Counter = 1;
         }
 
+        /// <summary>
+        /// Take screenshot and add to the word doc 
+        /// </summary>
+        /// <param name="path"></param>
         public void AddImageToDoc(string path)
         {
-            //Spire.Doc.Section section = document.AddSection();
+           
             Spire.Doc.Documents.Paragraph paragraph = section.AddParagraph();
             paragraph.AppendText($"Screenshot: {Counter}");
             paragraph.ApplyStyle(BuiltinStyle.Heading2);
@@ -67,6 +78,9 @@ namespace CapturePress
             image.Height = 250;
         }
 
+        /// <summary>
+        /// Save and Close the word doc 
+        /// </summary>
         public void CloseDoc()
         {
             document.SaveToFile(DocFile, Spire.Doc.FileFormat.Docx);
@@ -74,6 +88,9 @@ namespace CapturePress
             document.Dispose();
         }
 
+        /// <summary>
+        /// Delete the temproryly saved screenshot
+        /// </summary>
         public void CleanUp()
         {
             string root = @"C:\Capture_Folder\temp";
