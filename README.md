@@ -2,7 +2,7 @@
 
 
 During manual testing, capturing screenshot is an inevitable part. In most cases we tent  to capture screenshot one by one and save to a word doc or save each screenshot individually. This is a time consuming and tedious task. 
-Even though we have automation available, the tetser needs to open visual studio then select the test case , build it and  run it to get the screenshot.
+Even though we have automation available, the tester needs to open visual studio then select the test case , build it and  run it to get the screenshot.
 
 With the help of this screen capture utility the task of taking and saving screenshot is made effortless.
 
