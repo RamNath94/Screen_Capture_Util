@@ -31,6 +31,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
@@ -41,18 +42,18 @@
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             button1.AutoSize = true;
             button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button1.BackColor = Color.Chartreuse;
+            button1.BackColor = Color.Lime;
             button1.BackgroundImageLayout = ImageLayout.None;
-            button1.FlatStyle = FlatStyle.System;
+            button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Agency FB", 9F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(12, 15);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.ImageAlign = ContentAlignment.MiddleRight;
+            button1.Location = new Point(10, 11);
             button1.Name = "button1";
-            button1.Size = new Size(61, 27);
+            button1.Size = new Size(46, 46);
             button1.TabIndex = 0;
-            button1.Text = "Capture";
-            button1.TextAlign = ContentAlignment.TopCenter;
+            button1.TextAlign = ContentAlignment.MiddleLeft;
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
@@ -60,14 +61,16 @@
             // 
             button2.AutoSize = true;
             button2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button2.BackColor = Color.Red;
+            button2.BackColor = Color.FromArgb(255, 128, 0);
+            button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Agency FB", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(92, 15);
-            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.ImageAlign = ContentAlignment.MiddleRight;
+            button2.Location = new Point(62, 11);
             button2.Name = "button2";
-            button2.Size = new Size(44, 28);
+            button2.Size = new Size(46, 46);
             button2.TabIndex = 1;
-            button2.Text = "Save";
+            button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
@@ -76,34 +79,38 @@
             button3.AutoSize = true;
             button3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             button3.BackColor = Color.Yellow;
+            button3.FlatStyle = FlatStyle.Popup;
             button3.Font = new Font("Agency FB", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(155, 15);
-            button3.Margin = new Padding(3, 4, 3, 4);
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleRight;
+            button3.Location = new Point(114, 12);
             button3.Name = "button3";
-            button3.Size = new Size(56, 31);
+            button3.Size = new Size(46, 46);
             button3.TabIndex = 2;
-            button3.Text = "Restart";
+            button3.TextAlign = ContentAlignment.MiddleLeft;
             button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             BackColor = Color.DodgerBlue;
-            BackgroundImage = Properties.Resources.MicrosoftTeams_image__3_;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(224, 58);
+            ClientSize = new Size(171, 64);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             HelpButton = true;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
-            Opacity = 0.6D;
+            Opacity = 0.9D;
             StartPosition = FormStartPosition.Manual;
             Text = "CaptureUtil";
             TopMost = true;
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
